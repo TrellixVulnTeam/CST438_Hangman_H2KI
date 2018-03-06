@@ -1,6 +1,7 @@
 //require inquirer
 var inquirer = require('inquirer');
 var isLetter = require('is-letter');
+var fs = require('fs');
 //require objects/exports
 var Word = require('./word.js');
 var Game = require('./game.js');
