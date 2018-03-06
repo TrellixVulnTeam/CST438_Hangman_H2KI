@@ -13,7 +13,7 @@ require('events').EventEmitter.prototype._maxListeners = 100;
 
 
 var hangman = {
-    wordBank: Game.newWord.wordList,
+    wordBank: fs.readFileSync('hangmanwords.txt').toString().split("\n"),
     guessesRemaining: 10,
     //empty array to hold letters guessed by user. And checks if the user guessed the letter already
     guessedLetters: [],
