@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: null
+    environment: tal-hangman
 global:
   application_name: Cst438_Handman
   branch: null
