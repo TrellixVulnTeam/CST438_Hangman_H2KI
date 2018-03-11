@@ -5,7 +5,7 @@
 import random #used for picking the word from the list
 import json
 from flask import Flask, render_template, request, jsonify
-app = Flask(__name__)
+application = Flask(__name__)
 
 class Hangman():
     def __init__(self, guessword):  #constructor of Hangman class
@@ -53,7 +53,7 @@ def pickrandomword(): #function that pulls words from list and picks one randoml
         linerange = len(all_words)
         return all_words[random.randrange(0, linerange)]
 
-@app.route('/')
+@application.route('/')
 def initialize():
     #if request.form.get("displayword") is None:
     word = pickrandomword()  # step 1, pick word behind scenes
@@ -69,7 +69,7 @@ def initialize():
                     #  numberGuesses=game.numberGuesses, wrong_guesses=game.wrong_guesses,
                     #  guessed=game.guessed, incorrect=False, win=False, lost=False)
 
-@app.route("/", methods=["POST"])
+@application.route("/", methods=["POST"])
 def main():
     render_template("index.html")
     word = pickrandomword()  # step 1, pick word behind scenes
@@ -115,4 +115,4 @@ def main():
                                guessed=json.dumps(game.guessed), incorrect=True, win=True, lost=False, message="you win")
 
 if __name__ == "__main__": #runs actual game code above
-    app.run()
+    application.run()
