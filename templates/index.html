@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+    <title>CST 438: Hangman Assignment</title>
+
+</head>
+
+<body>
+    <script>
+        var guessword = '{{guessword}}';
+        var displayword = '{{displayword}}';
+        var wrong_guesses = '{{wrong_guesses}}';
+        var guessed = '{{guessed}}'
+        var message = '{{message}}';
+        var winState = '{{win}}';
+        var loseState = '{{lost}}';
+
+        if (loseState == "True") {
+            alert("Sorry you lost! Reloading so you can try again!");
+            window.location.href = "./";
+        } else if (winState == "True") {
+            alert("Congrats! Try for another win!");
+            window.location.href = "./";
+        }
+    </script>
+
+    <h2>Hangman by Talanda</h2>
+    <h2 style="font-family:'Lucida Console', monospace" id="displayWord">{{displayword}}</h2>
+
+    <div>
+        <strong>Status:</strong> <span id="message">{{message}}</span><br>
+        Number of <strong>Incorrect</strong> Guesses so Far: <span id="message">{{wrong_guesses}}</span> out of 7 <br>
+    </div>
+
+    <form action="/" method="POST">
+        <br>Guess a Letter:
+        <input type="text" name="guess" autofocus>
+
+        <input type="hidden" name="displayword" value="{{displayword}}">
+        <input type="hidden" name="guessword" value='{{guessword}}'>
+        <input type="hidden" name="wrong_guesses" value='{{wrong_guesses}}'>
+        <input type="hidden" name="guessed" value='{{guessed}}'>
+        <input type="submit" name="submit" value="Submit">
+
+    </form>
+
+</body>
+
+</html>
